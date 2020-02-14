@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/college-library-react/static/js/main.25048608.chunk.js",
-    "main.js.map": "/college-library-react/static/js/main.25048608.chunk.js.map",
+    "main.js": "/college-library-react/static/js/main.8082160f.chunk.js",
+    "main.js.map": "/college-library-react/static/js/main.8082160f.chunk.js.map",
     "runtime-main.js": "/college-library-react/static/js/runtime-main.bb4e0e7b.js",
     "runtime-main.js.map": "/college-library-react/static/js/runtime-main.bb4e0e7b.js.map",
     "static/css/2.47e06e2e.chunk.css": "/college-library-react/static/css/2.47e06e2e.chunk.css",
     "static/js/2.a39103e2.chunk.js": "/college-library-react/static/js/2.a39103e2.chunk.js",
     "static/js/2.a39103e2.chunk.js.map": "/college-library-react/static/js/2.a39103e2.chunk.js.map",
     "index.html": "/college-library-react/index.html",
-    "precache-manifest.b60998623ac9bddeac92546b4fe0ba5e.js": "/college-library-react/precache-manifest.b60998623ac9bddeac92546b4fe0ba5e.js",
+    "precache-manifest.03f8afdd9a474aefc22861c78191fc01.js": "/college-library-react/precache-manifest.03f8afdd9a474aefc22861c78191fc01.js",
     "service-worker.js": "/college-library-react/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/college-library-react/static/css/2.47e06e2e.chunk.css.map",
     "static/js/2.a39103e2.chunk.js.LICENSE.txt": "/college-library-react/static/js/2.a39103e2.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.bb4e0e7b.js",
     "static/css/2.47e06e2e.chunk.css",
     "static/js/2.a39103e2.chunk.js",
-    "static/js/main.25048608.chunk.js"
+    "static/js/main.8082160f.chunk.js"
   ]
 }
