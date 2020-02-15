@@ -1,3 +1,26 @@
+# About this project
+
+The purpose of this app is to manage a college library's book issues, students and book records.
+
+Demo: https://college-library-97282.firebaseapp.com/
+
+## Initial Setup
+
+Clone this repo
+
+install the dependencies using `yarn install` or `npm install`
+
+To start the development server, run `yarn run`
+
+Initially the app is wired to the backend flask app deployed on Heroku
+link: https://salty-island-31096.herokuapp.com/
+
+Repo: https://github.com/joelfinz/college-library-backend
+
+Visit the above repo link to setup local flask app server on your machine.
+
+If you have set up the local flask app server and want to wire to this app's dev build, you may modify the `baseURL` in /app/libapi.js to your localhost.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
