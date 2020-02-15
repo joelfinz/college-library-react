@@ -2,7 +2,7 @@ import React from "react";
 import libapi from "../libapi";
 import Post from "./Post";
 import { Link } from "react-router-dom";
-import { ListGroup, Card, Col, Button, Row } from "react-bootstrap";
+import { ListGroup, Card, Col, Button, Row, Spinner } from "react-bootstrap";
 
 class Students extends React.Component {
   state = {
@@ -20,17 +20,19 @@ class Students extends React.Component {
   }
 
   render() {
-    const students = this.state.students.map(std => {
-      return (
-        <Post
+    if (this.state.students.length > 0) {
+      
+      const students = this.state.students.map(std => {
+        return (
+          <Post
           key={std.id}
           id={std.id}
           stdname={std.name}
           stdaddress={std.address}
-        ></Post>
-      );
+          ></Post>
+          );
     });
-
+    
     return (
       <div>
         <Card style={{ maxWidth: "500px", margin: "auto" }}>
@@ -52,6 +54,12 @@ class Students extends React.Component {
         </Card>
       </div>
     );
+    } else
+      return (
+        <center>
+        <Spinner animation="border" role="status"></Spinner>
+        </center>
+      )
   }
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import libapi from "../libapi";
 import { Link } from "react-router-dom";
-import { Card, Button, ListGroup } from "react-bootstrap";
+import { Card, Button, ListGroup, Spinner } from "react-bootstrap";
 import IssuedUsers from "../IssueBook/IssuedUsers";
 import ReactAvatar from "react-avatar";
 
@@ -34,9 +34,11 @@ class ViewBook extends React.Component {
   }
 
   render() {
-    const issuedList = this.state.issuedlist.map(issue => {
-      return (
-        <div>
+    if (this.state.bookName != null) {
+      
+      const issuedList = this.state.issuedlist.map(issue => {
+        return (
+          <div>
           <IssuedUsers
             key={issue.student_id}
             id={issue.student_id}
@@ -71,7 +73,7 @@ class ViewBook extends React.Component {
                   pathname: "/issueBook",
                   state: { book_id: this.state.id }
                 }}
-              >
+                >
                 <Button>Assign</Button>
               </Link>
             </Card.Link>
@@ -88,6 +90,12 @@ class ViewBook extends React.Component {
         </Card>
       </div>
     );
+    } else
+      return (
+        <center>
+        <Spinner animation="border" role="status"></Spinner>
+        </center>
+      )
   }
 }
 

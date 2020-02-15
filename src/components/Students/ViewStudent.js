@@ -1,7 +1,7 @@
 import React from "react";
 import libapi from "../libapi";
 import UserBookDetails from "../IssueBook/UserBookDetails";
-import { Card, Table } from "react-bootstrap";
+import { Card, Table, Spinner } from "react-bootstrap";
 import ReactAvatar from "react-avatar";
 
 class ViewStudent extends React.Component {
@@ -28,24 +28,26 @@ class ViewStudent extends React.Component {
     }).catch(err=>console.log(err))
   }
   render() {
-    const issueDetails = this.state.issueData.map(issue => {
-      if (issue.book_issuesince === "0:")
+    if (this.state.studName != null) {
+      
+      const issueDetails = this.state.issueData.map(issue => {
+        if (issue.book_issuesince === "0:")
         issue.book_issuesince = "Issued today"
-      return (
+        return (
           <UserBookDetails
-            key={issue.book_id}
-            book_id={issue.book_id}
-            book_name={issue.book_name}
-            author_name={issue.book_author}
-            issuedate={issue.book_issuedate}
-            issueddays={issue.book_issuesince}
-            returndate={issue.book_returndate}
-            days={issue.book_returndaysremain}
+          key={issue.book_id}
+          book_id={issue.book_id}
+          book_name={issue.book_name}
+          author_name={issue.book_author}
+          issuedate={issue.book_issuedate}
+          issueddays={issue.book_issuesince}
+          returndate={issue.book_returndate}
+          days={issue.book_returndaysremain}
           />
-      );
-    });
-    return (
-      <div>
+          );
+        });
+        return (
+          <div>
         <Card style={{ maxWidth: "500px", margin: "auto" }}>
           <Card.Header>
             <h3>Student Details</h3>
@@ -81,6 +83,13 @@ class ViewStudent extends React.Component {
         </Card>
       </div>
     );
+    } else {
+      return (
+        <center>
+        <Spinner animation="border" role="status"></Spinner>
+        </center>
+        )
+  }
   }
 }
 

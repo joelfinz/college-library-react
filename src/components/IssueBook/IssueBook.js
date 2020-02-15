@@ -1,7 +1,7 @@
 import React from "react";
 import libapi from "../libapi";
 import { Redirect, Link } from "react-router-dom";
-import { Card, Button, Form } from "react-bootstrap";
+import { Card, Button, Form, Spinner } from "react-bootstrap";
 
 class IssueBook extends React.Component {
   state = {
@@ -48,15 +48,17 @@ class IssueBook extends React.Component {
   }
 
   render() {
-    if (this.state.formSuccess === true) {
-      return (
+    if (this.state.students.length > 0) {
+      
+      if (this.state.formSuccess === true) {
+        return (
         <Redirect
-          to={{
+        to={{
             pathname: "/viewBook",
             state: { id: this.state.book_id }
           }}
         />
-      );
+        );
     }
 
     const students = this.state.students.map(std => {
@@ -86,7 +88,7 @@ class IssueBook extends React.Component {
                     pathname: "/viewBook",
                     state: { id: this.state.book_id }
                   }}
-                >
+                  >
                   <Button>View Book</Button>
                 </Link>
               </Card.Footer>
@@ -100,7 +102,7 @@ class IssueBook extends React.Component {
                   as="select"
                   id="form"
                   onChange={e => this.setState({ student_id: e.target.value })}
-                >
+                  >
                   {students}
                 </Form.Control>
               </Form.Group>
@@ -114,6 +116,12 @@ class IssueBook extends React.Component {
         </Card>
       </div>
     );
+    } else
+      return (
+        <center>
+        <Spinner animation="border" role="status"></Spinner>
+        </center>
+      )
   }
 }
 
