@@ -1,91 +1,86 @@
-# About this project
-
-The purpose of this app is to manage a college library's book issues, students and book records.
-
-Demo: https://college-library-97282.firebaseapp.com/
-
 ## Initial Setup
 
-Clone this repo
+To get started, you need Python 3.8x and the following dependencies installed
 
-Install the dependencies using `yarn install` or `npm install`
+ **Install virtualenv**
 
-To start the development server, run `yarn start`
+```bash
+pip install virtualenv
+```
 
-Initially the app is wired to the backend flask app deployed on Heroku
 
-link: https://salty-island-31096.herokuapp.com/
-Repo: https://github.com/joelfinz/college-library-backend
 
-Visit the above repo link to setup local flask app server on your machine.
+**Create a new virtual environment**
 
-If you have set up the local flask app server and want to wire to this app's dev build, you may modify the `baseURL` in /src/components/libapi.js to your localhost.
+```bash
+virtualenv venv
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+​	
 
-## Available Scripts
+**Activate environment**
 
-In the project directory, you can run:
+​	In Windows: 
 
-### `yarn start`
+```bash
+.\venv\Scripts\activate.bat
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+​	In Linux:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```bash
+$ source .\venv\bin\activate
+```
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+**Install Flask and other dependencies**
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+pip install flask flask-sqlalchemy flask-cors
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+**Open python interpreter mode and enter the following**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```python
+>>> from app import db
+>>> db.create_all()
+>>> exit()
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+​	
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Start flask server**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+python app.py
+```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Testing endpoints
+Now that you have the flask server running, you can now make requests to this flask server.
+Or  you can test from the live version of the app: 
+https://salty-island-31096.herokuapp.com
 
-### Code Splitting
+It is recommended that you use REST API testing tools like [Postman](https://www.postman.com/) or [Insomnia REST](https://insomnia.rest/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Endpoints
 
-### Analyzing the Bundle Size
+|  Method  | Endpoint                        | Body (Content-type:JSON)                                     |
+| :------: | :------------------------------ | :----------------------------------------------------------- |
+|  [GET]   | `/api/books`                    |                                                              |
+|  [GET]   | `/api/book/<bookid>`            |                                                              |
+|  [POST]  | `/api/addbook`                  | "book_name":"String",<br/>"author_name":"String",<br/>"brief_desc":"String",<br/>"detailed_desc":""String"" |
+| [DELETE] | `/api/delbook/<bookid>`         |                                                              |
+|  [GET]   | `/api/students`                 |                                                              |
+|  [GET]   | `/api/book/<studentid>`         |                                                              |
+|  [POST]  | `/api/addstudent`               | "student_name":"String",<br/>"student_address":"String"      |
+| [DELETE] | `/api/delstudent/<studentid>`   |                                                              |
+|  [GET]   | `/api/issues`                   |                                                              |
+|  [GET]   | `/api/getbookuser/<bookid>`     |                                                              |
+|  [GET]   | `/api/getissueuser/<studentid>` |                                                              |
+|  [POST]  | `/api/newissue`                 | "issue_student":(Studentid),<br/>	"issue_book":(Bookid)   |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
