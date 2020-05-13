@@ -17,7 +17,7 @@ import IssueBook from "./components/IssueBook/IssueBook";
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename="/college-library-react">
         <Navbarcomp style={{ marginTop: "1px" }} />
         <Container style={{ marginTop: "70px" }}>
           <Route path="/" exact component={Home}></Route>
